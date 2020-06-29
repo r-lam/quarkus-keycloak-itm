@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ITM - Keycloak</title>
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/all.min.css">
+    <link rel="icon" href="img/itm.png" type="image/gif" sizes="16x16">
+</head>
+<body class="c-app">
+    <!--Sidebar-->
+    <div class="c-sidebar c-sidebar-dark c-sidebar-show">
+        
+        <ul class="c-sidebar-nav">
+          <li class="c-sidebar-nav-title">Settings</li>
+          <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="#">
+              <i class="c-sidebar-nav-icon cil-speedometer"></i> Dashboard
+            </a>
+          </li>
+          <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="/logout">
+              <i class="c-sidebar-nav-icon cil-account-logout"></i> Logout
+              <span class="badge badge-primary">NEW</span>
+            </a>
+          </li>
+          <li class="c-sidebar-nav-item nav-dropdown">
+            <a class="c-sidebar-nav-link nav-dropdown-toggle" href="#">
+              <i class="c-sidebar-nav-icon cil-puzzle"></i> Nav dropdown
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+              <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" href="#">
+                  <i class="c-sidebar-nav-icon cil-puzzle"></i> Nav dropdown item
+                </a>
+              </li>
+              <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" href="#">
+                  <i class="c-sidebar-nav-icon cil-puzzle"></i> Nav dropdown item
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <button class="c-sidebar-minimizer c-brand-minimizer" type="button"></button>
+    </div>
+    <!--End Sidebar-->
+    <!--Content-->
+    <div class="c-wrapper">
+        <header class="c-header c-header-light px-3">
+            <a class="c-header-brand mr-auto" href="#">
+              <img src="img/itm.png" width="40" height="40" class="d-inline-block align-top" alt="CoreUI Logo">
+            </a>
+            
+            <ul class="c-header-nav">
+                <li class="c-header-nav-item active">
+                  <a class="c-header-nav-link" href="#"><i class="cil-home"></i> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="c-header-nav-item dropdown">
+                  <a class="c-header-nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Cuenta
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#"><i class="cil-pencil"></i>&nbsp;Editar</a>
+                    <a class="dropdown-item" href="#"><i class="cil-user"></i>&nbsp;Perfil</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout"><i class="cil-account-logout"></i>&nbsp;Logout</a>
+                  </div>
+                </li>
+                <li class="c-header-nav-item">
+                  <a class="c-header-nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contacto</a>
+                </li>
+            </ul>
+        </header>
+        <div class="c-body">
+            <main class="c-main">
+                <div class="container">
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                          <div class="col-md-4">
+                            <img src="img/keycloak_logo_480x108.png" alt="" class="img-fluid mt-3">
+                      
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title">Bemvindo {username}!</h5>
+                              <p class="card-text">Si logras ver este mensaje es por que has usado la magia de <span class="font-weight-bold">Keycloak</span> para autenticarte!</p>
+                              <p class="card-text"><small class="text-muted"><a href="https://www.keycloak.org/documentation" target="_blank" class="text-muted">Documentacion</a></small></p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </main>
+        </div>
+        <footer class="c-footer">
+
+        </footer>
+    </div>
+
+
+<script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+</body>
+</html>
