@@ -7,7 +7,10 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 ## KeyCloak Server
 
 We use the containerized version of keycloak 10.0.2 to run this demo. 
-You can run one with using `docker run --name keycloak -p 8180:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d quay.io/keycloak/keycloak:10.0.2`.
+You can run one executing:
+```
+docker run --name keycloak -p 8180:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d quay.io/keycloak/keycloak:10.0.2
+```
 
 Once running, access the admin console 'localhost:8180/auth', create a new Realm called 'quarkus' and import the file `quarkus-realm.json`.
 
@@ -21,7 +24,7 @@ You can run your application in dev mode that enables live coding using:
 ## Test the application
 
 Go to 'localhost:8080' in your browser and click on the button below the image, it should ask for your credentials.
-In this demo, we use the user 'userx' and '3421' as password.
+In this demo, we use the user `userx` and `3421` as password.
 
 ## Packaging and running the application
 
