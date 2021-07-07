@@ -6,7 +6,7 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 ## KeyCloak Server
 
-We use the containerized version of keycloak 10.0.2 to run this demo. 
+We use the containerized version of keycloak 10.0.2 to run this demo.
 You can run one executing:
 ```
 docker run --name keycloak -p 8180:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d quay.io/keycloak/keycloak:10.0.2
@@ -16,7 +16,12 @@ Once running, access the admin console 'localhost:8180/auth', create a new Realm
 
 ## Running the application in dev mode
 
-You can run your application in dev mode that enables live coding using:
+First, you'll need a MariaDB instance running so execute:
+```
+docker run -it --rm --name mariadb -p 3306:3306 -e MARIADB_ROOT_PASSWORD=demo -e MARIADB_USER=demo -e MARIADB_PASSWORD=demo -e MARIADB_DATABASE=inventory quay.io/rlam/mariadb:10.5-debezium
+```
+
+Then, you can run your application in dev mode that enables live coding using:
 ```
 ./mvnw quarkus:dev
 ```
