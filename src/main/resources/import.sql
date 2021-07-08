@@ -1,0 +1,1 @@
+INSERT INTO Customer(id,first_name,last_name,email) VALUES(nextval('hibernate_sequence'),'Anne','Ketchmar','annek@noanswer.org');
