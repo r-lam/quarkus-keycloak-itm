@@ -8,7 +8,6 @@ import javax.ws.rs.core.MediaType;
 
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
-import io.quarkus.qute.api.ResourcePath;
 import io.quarkus.security.Authenticated;
 import io.quarkus.security.identity.SecurityIdentity;
 
@@ -18,7 +17,7 @@ public class ContactResource {
     @Inject
     SecurityIdentity securityIdentity;
 
-    @ResourcePath("contact")
+    @Inject
     Template contact;
 
     @GET
