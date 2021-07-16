@@ -11,19 +11,18 @@ import io.quarkus.qute.TemplateInstance;
 import io.quarkus.security.Authenticated;
 import io.quarkus.security.identity.SecurityIdentity;
 
-@Path("dashboard")
+@Path("contact")
 @Authenticated
-public class UserResource {
-
+public class ContactResource {
     @Inject
     SecurityIdentity securityIdentity;
 
     @Inject
-    Template dashboard;
+    Template contact;
 
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance noauth() {
-        return dashboard.data("username", securityIdentity.getPrincipal().getName());
+        return contact.data("username", securityIdentity.getPrincipal().getName());
     }
 }
