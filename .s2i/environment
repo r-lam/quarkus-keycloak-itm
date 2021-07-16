@@ -4,4 +4,4 @@ JAVA_OPTIONS=-Dquarkus.http.host=0.0.0.0
 AB_JOLOKIA_OFF=true
 JAVA_APP_JAR=/deployments/quarkus-run.jar
 
-MVN_ADDITIONAL_ARGS=quarkus.native.native-image-xmx=4G
+MVN_ADDITIONAL_ARGS=-Dquarkus.native.native-image-xmx=4G
