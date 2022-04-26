@@ -4,12 +4,23 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
+## Variables
+
+| Name | Default Value |
+| ---- | ------------- |
+| KEYCLOAK_URL | https://localhost:8543/realms/quarkus |
+| KEYCLOAK_CLIENT | backend-service |
+| KEYCLOAK_CLIENT_SECRET | secret |
+| MYSQL_URL | jdbc:mariadb://localhost:3306/inventory |
+| MYSQL_USER | demo |
+| MYSQL_PASS | demo |
+
 ## KeyCloak Server
 
 We use the containerized version of keycloak 10.0.2 to run this demo.
 You can run one executing:
 ```
-docker run --name keycloak -p 8180:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d quay.io/keycloak/keycloak:10.0.2
+docker run -d --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -p 8543:8443 -v "$(pwd)"/config/keycloak-keystore.jks:/etc/keycloak-keystore.jks quay.io/keycloak/keycloak:17.0.1 start  --hostname-strict=false --https-key-store-file=/etc/keycloak-keystore.jks
 ```
 
 Once running, access the admin console 'localhost:8180/auth', create a new Realm called 'quarkus' and import the file `quarkus-realm.json`.
@@ -18,7 +29,7 @@ Once running, access the admin console 'localhost:8180/auth', create a new Realm
 
 First, you'll need a MariaDB instance running so execute:
 ```
-docker run -it --rm --name mariadb -p 3306:3306 -e MARIADB_ROOT_PASSWORD=demo -e MARIADB_USER=demo -e MARIADB_PASSWORD=demo -e MARIADB_DATABASE=inventory quay.io/rlam/mariadb:10.5-debezium
+docker run -it --rm --name mariadb -p 3306:3306 -e MARIADB_ROOT_PASSWORD=demo -e MARIADB_USER=demo -e MARIADB_PASSWORD=demo -e MARIADB_DATABASE=inventory -d quay.io/rlam/mariadb:10.5-debezium
 ```
 
 Then, you can run your application in dev mode that enables live coding using:
@@ -28,8 +39,7 @@ Then, you can run your application in dev mode that enables live coding using:
 
 ## Test the application
 
-Go to 'localhost:8080' in your browser and click on the button below the image, it should ask for your credentials.
-In this demo, we use the user `userx` and `3421` as password.
+Go to 'localhost:8080/dashboard' using a Token corresponding to `userx` in Keycloak
 
 ## Packaging and running the application
 
